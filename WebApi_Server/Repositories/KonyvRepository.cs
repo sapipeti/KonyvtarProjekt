@@ -8,25 +8,25 @@ using WebApi_Common.Models;
 
 namespace WebApi_Server.Repositories
 {
-    public class KonyvRepository
+    public static class KonyvRepository
     {
         private const string filename = "Konyvek.json";
 
-        public static IEnumerable<Konyv> GetPeople()
+        public static IEnumerable<Konyv> GetBooks()
         {
             if (File.Exists(filename))
             {
                 var rawData = File.ReadAllText(filename);
-                var people = JsonSerializer.Deserialize<IEnumerable<Konyv>>(rawData);
-                return people;
+                var konyvek = JsonSerializer.Deserialize<IEnumerable<Konyv>>(rawData);
+                return konyvek;
             }
 
             return new List<Konyv>();
         }
 
-        public static void StorePeople(IEnumerable<Konyv> konyv)
+        public static void StoreBooks(IEnumerable<Konyv> konyvek)
         {
-            var rawData = JsonSerializer.Serialize(konyv);
+            var rawData = JsonSerializer.Serialize(konyvek);
             File.WriteAllText(filename, rawData);
         }
     }
