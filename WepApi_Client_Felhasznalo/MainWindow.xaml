@@ -13,5 +13,6 @@
         <ComboBox HorizontalAlignment="Left" Margin="62,55,0,0" VerticalAlignment="Top" Width="160" Height="21"/>
         <Button Content="Lekérdezés" HorizontalAlignment="Left" Margin="62,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="354" Margin="267,55,0,0" VerticalAlignment="Top" Width="515"/>
+        <Label Name="udvozles_Label" Content="Üdvözöllek: QDNY7S" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="160"/>
     </Grid>
 </Window>

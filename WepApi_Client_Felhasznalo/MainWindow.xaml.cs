@@ -24,6 +24,7 @@ namespace WepApi_Client_Felhasznalo
     public partial class MainWindow : Window
     {
         List<Konyv> konyvek = new List<Konyv>();
+        List<KonyvKliens> konyvek_kliens = new List<KonyvKliens>();
 
         public MainWindow()
         {
@@ -33,7 +34,51 @@ namespace WepApi_Client_Felhasznalo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             konyvek = KonyvDataProvider.GetKonyvek().ToList();
-            Tablazat.ItemsSource = konyvek;
+            string [] neptunKod = udvozles_Label.Content.ToString().Split(':');
+            neptunKod[1]=neptunKod[1].Replace(" ", "");
+            int i = 0,index=-1;
+            string mufaj="", szerzo="";
+            foreach (var item in konyvek)
+            {
+                foreach (var neptunkod in item.NeptunKod)
+                {
+                  if (neptunkod.ToString().Equals(neptunKod[1]))
+                  {
+                      index = i;
+                      break;
+                  }
+                  i++;
+                }
+                foreach (var item2 in item.Műfajok)
+                {
+                    if (!mufaj.Equals("")) {
+                        mufaj += "," + item2;
+                    }
+                    else
+                    {
+                        mufaj += item2;
+                    }
+                    
+
+                }
+                foreach (var item2 in item.Szerző)
+                {
+                    if (!szerzo.Equals(""))
+                    {
+                        szerzo += "," + item2;
+                    }
+                    else
+                    {
+                        szerzo += item2;
+                    }
+                }
+                if (index != -1)
+              {
+                konyvek_kliens.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo/*, item.VisszaHozas[i], item.KolcsonzottDB[i]*/));
+              }
+                   
+            }
+            Tablazat.ItemsSource = konyvek_kliens;
         }
     }
 }
