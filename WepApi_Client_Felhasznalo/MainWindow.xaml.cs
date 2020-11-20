@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WebApi_Common.DataProviders;
+using WebApi_Common.Models;
+
 
 namespace WepApi_Client_Felhasznalo
 {
@@ -20,9 +23,17 @@ namespace WepApi_Client_Felhasznalo
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Konyv> konyvek = new List<Konyv>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            konyvek = KonyvDataProvider.GetKonyvek().ToList();
+            Tablazat.ItemsSource = konyvek;
         }
     }
 }

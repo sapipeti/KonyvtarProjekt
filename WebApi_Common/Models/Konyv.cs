@@ -15,6 +15,9 @@ namespace WebApi_Common.Models
         public List<string> Szerző { get; set; }
         public int Darabszám { get; set; }
 
+        public List<string> NeptunKod { get; set; }
+        public List<DateTime> VisszaHozas { get; set; }
+        public List<int> KolcsonzottDB { get; set; }
         public override string ToString()
         {
             return base.ToString();

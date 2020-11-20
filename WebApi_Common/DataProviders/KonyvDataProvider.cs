@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WebApi_Common.Models;
 
-namespace WebApi_Client_Konyvtaros.DataProviders
+namespace WebApi_Common.DataProviders
 {
     public static class KonyvDataProvider
     {

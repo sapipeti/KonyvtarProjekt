@@ -61,6 +61,9 @@ namespace WebApi_Server.Controllers
                 bookToUpdate.Kiadó = konyv.Kiadó;
                 bookToUpdate.Műfajok = konyv.Műfajok;
                 bookToUpdate.Szerző = konyv.Szerző;
+                bookToUpdate.VisszaHozas = konyv.VisszaHozas;
+                bookToUpdate.NeptunKod = konyv.NeptunKod;
+                bookToUpdate.KolcsonzottDB = konyv.KolcsonzottDB;
 
                 KonyvRepository.StoreBooks(konyvek);
                 return Ok();

@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WepApi_Client_Felhasznalo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kliens" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ComboBox HorizontalAlignment="Left" Margin="62,55,0,0" VerticalAlignment="Top" Width="160" Height="21"/>
+        <Button Content="Lekérdezés" HorizontalAlignment="Left" Margin="62,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="354" Margin="267,55,0,0" VerticalAlignment="Top" Width="515"/>
     </Grid>
 </Window>
