@@ -9,7 +9,7 @@ using WebApi_Server.Repositories;
 
 namespace WebApi_Server.Controllers
 {
-    [Route("api/konyvtar")]
+    [Route("api/konyvtar/konyvek")]
     [ApiController]
     public class KonyvtarController : ControllerBase
     {

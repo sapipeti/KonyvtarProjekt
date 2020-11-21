@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/konyvtar",
+      "launchUrl": "api/konyvtar/konyvek",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "WebApi_Server": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "api/konyvtar",
+      "launchUrl": "api/konyvtar/konyvek",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

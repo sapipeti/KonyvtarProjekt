@@ -25,10 +25,13 @@ namespace WepApi_Client_Felhasznalo
     {
         List<Konyv> konyvek = new List<Konyv>();
         List<KonyvKliens> konyvek_kliens = new List<KonyvKliens>();
+        string NeptunKod;
 
-        public MainWindow()
+        public MainWindow(String NeptunKod)
         {
+            this.NeptunKod = NeptunKod;
             InitializeComponent();
+            udvozles_Label.Content += (" "+NeptunKod);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

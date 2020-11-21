@@ -11,7 +11,7 @@ namespace WebApi_Common.DataProviders
 {
     public static class KonyvDataProvider
     {
-        private static string _url = "http://localhost:5000/api/konyvtar";
+        private static string _url = "http://localhost:5000/api/konyvtar/konyvek";
 
         public static IList<Konyv> GetKonyvek()
         {
