@@ -11,11 +11,6 @@
         <ImageBrush ImageSource="Images\background.jpg" />
     </Window.Background>
 
-    <Window.Resources>
-        <Style TargetType="Button" x:Key="WindowButtons">
-            <Setter Property="Opacity" Value="1"/>
-        </Style>
-    </Window.Resources>
     <Grid Margin="220, 40, 220, 40">
         <Grid.Background>
             <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
