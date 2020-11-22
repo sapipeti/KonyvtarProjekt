@@ -8,6 +8,17 @@
     "M\u0171fajok": [ "Fantasy" ],
     "Szerz\u0151": [ "Rowling" ],
     "Darabsz\u00E1m": 1,
-    "NeptunKod": ["QDNY7S"]
+    "NeptunKod": [ "12345" ]
+  },
+  {
+    "Id": 2,
+    "C\u00EDm": "WASD",
+    "ISBN": 9789633247396,
+    "Kiad\u00F3": "Warner",
+    "Kiad\u00E1s_\u00C9v": 2004,
+    "M\u0171fajok": [ "Fantasy" ],
+    "Szerz\u0151": [ "Rowling" ],
+    "Darabsz\u00E1m": 1,
+    "NeptunKod": [ "12345" ]
   }
 ]

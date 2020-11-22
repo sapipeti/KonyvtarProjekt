@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WepApi_Client_Felhasznalo"
         mc:Ignorable="d"
-        Title="Kliens" Height="450" Width="800">
+        Title="Kliens" Height="450" Width="916.319">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ComboBox HorizontalAlignment="Left" Margin="62,55,0,0" VerticalAlignment="Top" Width="160" Height="21"/>
-        <Button Content="Lekérdezés" HorizontalAlignment="Left" Margin="62,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="354" Margin="267,55,0,0" VerticalAlignment="Top" Width="515"/>
-        <Label Name="udvozles_Label" Content="Üdvözöllek:" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="160"/>
+        <ComboBox Name="OszlopComboBox" HorizontalAlignment="Left" Margin="312,27,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
+        <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="354" Margin="10,55,0,0" VerticalAlignment="Top" Width="888"/>
+        <Label Name="udvozles_Label" Content="Üdvözöllek:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="160"/>
+        <TextBox Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="175,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="175,11,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="312,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
     </Grid>
 </Window>
