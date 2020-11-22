@@ -6,16 +6,36 @@
         xmlns:local="clr-namespace:WepApi_Client_Felhasznalo"
         mc:Ignorable="d"
         Title="Bejelentkezés" Height="300" Width="500">
-    <Grid>
+    
+    <Window.Background>
+        <ImageBrush ImageSource="Images\background.jpg" />
+    </Window.Background>
+    
+    <Grid Margin="85, 20, 85, 20">
+        <Grid.Background>
+            <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Bejelentkezés" HorizontalAlignment="Left" Margin="245,162,0,0" VerticalAlignment="Top" Width="75" Click="BejelentkezesAction"/>
-        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Left" Height="23" Margin="165,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Regisztráció" HorizontalAlignment="Left" Margin="165,162,0,0" VerticalAlignment="Top" Width="75" Click="RegisztracioAction"/>
-        <TextBlock HorizontalAlignment="Left" Margin="165,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Neptun kód:"></Run></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="165,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Jelszó:"/>
-        <TextBlock HorizontalAlignment="Left" Margin="177,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Egyetemi könyvtár" FontSize="15" FontWeight="Bold"/>
-        <PasswordBox Name="JelszoPasswordBox" HorizontalAlignment="Left" Margin="165,124,0,0" VerticalAlignment="Top" Width="155" Height="23"/>
+        <Button Content="Bejelentkezés" HorizontalAlignment="Left" Background="Beige" Margin="160,162,0,0" VerticalAlignment="Top" Width="75" Click="BejelentkezesAction" RenderTransformOrigin="0.205,0.512">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Left" Height="23" Margin="80,85,80,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Regisztráció" HorizontalAlignment="Left" Background="Beige" Margin="80,162,0,0" VerticalAlignment="Top" Width="75" Click="RegisztracioAction">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="80,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Neptun kód:"></Run></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="80,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Jelszó:" RenderTransformOrigin="-0.551,0.425"/>
+        <TextBlock HorizontalAlignment="Left" Margin="90,30,90,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Egyetemi könyvtár" FontSize="15" FontWeight="Bold"/>
+        <PasswordBox Name="JelszoPasswordBox" HorizontalAlignment="Left" Margin="80,129,80,0" VerticalAlignment="Top" Width="155" Height="23"/>
     </Grid>
 </Window>
