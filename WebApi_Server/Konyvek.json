@@ -7,18 +7,22 @@
     "Kiad\u00E1s_\u00C9v": 2004,
     "M\u0171fajok": [ "Fantasy" ],
     "Szerz\u0151": [ "Rowling" ],
-    "Darabsz\u00E1m": 1,
-    "NeptunKod": [ "12345" ]
+    "Darabsz\u00E1m": 3,
+    "NeptunKod": [ "12345","33333" ],
+    "VisszaHozas": [ "2021-09-08", "2021-11-09" ],
+    "KolcsonzottDB" : [1,2]
   },
   {
     "Id": 2,
     "C\u00EDm": "WASD",
-    "ISBN": 9789633247396,
+    "ISBN": 9723133247396,
     "Kiad\u00F3": "Warner",
     "Kiad\u00E1s_\u00C9v": 2004,
-    "M\u0171fajok": [ "Fantasy" ],
-    "Szerz\u0151": [ "Rowling" ],
+    "M\u0171fajok": [ "Fantasydsa" ],
+    "Szerz\u0151": [ "Rowlingdsa" ],
     "Darabsz\u00E1m": 1,
-    "NeptunKod": [ "12345" ]
+    "NeptunKod": [ "12345" ],
+    "VisszaHozas": [ "2021-10-08" ],
+    "KolcsonzottDB": [ 1 ]
   }
 ]

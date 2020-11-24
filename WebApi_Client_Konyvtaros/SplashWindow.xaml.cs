@@ -29,7 +29,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void KonyvKeresButton_Click(object sender, RoutedEventArgs e)
         {
-            KonyvKiadWindow kkeresw = new KonyvKiadWindow();
+            SearchWindow kkeresw = new SearchWindow();
             kkeresw.Show();
             this.Close();
         }
