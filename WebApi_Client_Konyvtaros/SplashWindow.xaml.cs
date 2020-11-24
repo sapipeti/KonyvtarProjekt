@@ -36,7 +36,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void KonyvKiadButton_Click(object sender, RoutedEventArgs e)
         {
-            KonyvKiadWindow kkiadw = new KonyvKiadWindow();
+            KonyvKiadWindow kkiadw = new KonyvKiadWindow(new Konyv());
             kkiadw.Show();
             this.Close();
         }

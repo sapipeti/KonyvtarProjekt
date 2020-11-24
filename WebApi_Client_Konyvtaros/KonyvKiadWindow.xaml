@@ -30,13 +30,16 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Black"  Content="Könyv ID:"></Label>
-        <TextBox Name="konyvIdTextBox" Grid.Row="1" Grid.Column="0" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150"></TextBox>
+        <TextBox Name="konyvIdTextBox" IsEnabled="False" Grid.Row="1" Grid.Column="0" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150"></TextBox>
 
         <Label Grid.Row="2" Grid.Column="0" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Content="Cím:"></Label>
-        <TextBox Name="konyvCimTextBox" Grid.Row="3" Grid.Column="0" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBox Name="konyvCimTextBox" IsEnabled="False" Grid.Row="3" Grid.Column="0" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>
 
+        <Label Grid.Row="4" Grid.Column="0" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Content="Szerző:"></Label>
+        <TextBox Name="konyvSzerzoTextBox" IsEnabled="False" Grid.Row="5" Grid.Column="0" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>
+        
         <Label Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Black"  Content="Neptunkód:"></Label>
-        <TextBox Name="neptunkodTextBox" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150"></TextBox>
+        <TextBox Name="neptunkodTextBox" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150" TextChanged="neptunkodTextBox_TextChanged"></TextBox>
 
         <Label Grid.Row="2" Grid.Column="1" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Content="Darabszám:"></Label>
         <TextBox Name="darabszamTextBox" Grid.Row="3" Grid.Column="1" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>

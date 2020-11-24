@@ -158,5 +158,10 @@ namespace WebApi_Client_Konyvtaros
             UpdateData();
             OszlopNev = OszlopComboBox.SelectedItem.ToString();
         }
+
+        private void kiadButton_Click(object sender, RoutedEventArgs e)
+        {
+            KonyvKiadWindow kkw = new KonyvKiadWindow(new Konyv());
+        }
     }
 }

@@ -21,7 +21,9 @@ namespace WebApi_Client_Konyvtaros
     /// </summary>
     public partial class KonyvKiadWindow : Window
     {
-        public IList<Konyv> _konyvek;
+        public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
+        //FelhasznaloAdatok fAdat = FelhasznaloAdatDataProvider.GetData(NeptunKodTextBox.Text.ToString());
+        public Konyv konyv1;
 
         public KonyvKiadWindow(Konyv konyv)
         {
@@ -30,29 +32,64 @@ namespace WebApi_Client_Konyvtaros
             if(konyv != null)
             {
                 konyvIdTextBox.Text = konyv.Id.ToString();
+                konyvCimTextBox.Text = konyv.Cím;
+                konyvSzerzoTextBox.Text = konyv.Szerző.ToString();
+                konyv1 = konyv;
             }
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)
         {
-            SplashWindow sw = new SplashWindow();
+            SearchWindow sw = new SearchWindow();
             sw.Show();
             this.Close();
         }
 
         private void Kiadas_Click(object sender, RoutedEventArgs e)
         {
-            if(konyvIdTextBox.Text.Equals("") || darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
+            if(darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
             {
                 MessageBox.Show("Kérlek tölts ki minden mezőt!", "Hiba");
             }
             else
             {
-                
-                SplashWindow sw = new SplashWindow();
-                sw.Show();
-                this.Close();
+                if (ValidateKiad())
+                {
+                    konyv1.NeptunKod.Add(neptunkodTextBox.Text);
+                    konyv1.KolcsonzottDB.Add(int.Parse(darabszamTextBox.Text));
+                    konyv1.VisszaHozas.Add(datePicker.SelectedDate.Value);
+                    KonyvDataProvider.UpdateKonyv(konyv1);
+                    SplashWindow sw = new SplashWindow();
+                    sw.Show();
+                    this.Close();
+                }
             }
+        }
+
+        private bool ValidateKiad()
+        {
+            if (String.IsNullOrEmpty(neptunkodTextBox.Text))
+            {
+                MessageBox.Show("Adj meg neptunkódot!");
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(darabszamTextBox.Text))
+            {
+                MessageBox.Show("Adj meg darabszámot!");
+                return false;
+            }
+            if (!datePicker.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Válassz ki dátumot!");
+                return false;
+            }
+            return true;
+        }
+
+        private void neptunkodTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

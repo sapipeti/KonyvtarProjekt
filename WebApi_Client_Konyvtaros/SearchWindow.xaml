@@ -12,6 +12,7 @@
         <TextBox x:Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="13,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
+        <Button x:Name="kiadButton" Content="Kiadás" Width="50" Height="23" Margin="848,26,10,368" Click="kiadButton_Click"></Button>
 
     </Grid>
 </Window>
