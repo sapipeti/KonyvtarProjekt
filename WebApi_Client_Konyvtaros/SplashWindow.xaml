@@ -40,5 +40,13 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <Button Grid.Row="3" x:Name="KonyvEditButton" Content="Könyv módosítása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="15" Click="KonyvEditButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

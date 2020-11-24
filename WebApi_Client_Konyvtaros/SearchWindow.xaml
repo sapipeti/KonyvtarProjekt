@@ -5,14 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebApi_Client_Konyvtaros"
         mc:Ignorable="d"
-        Title="SearchWindow" Height="447.613" Width="915.782">
-    <Grid>
-        <ComboBox x:Name="OszlopComboBox" HorizontalAlignment="Left" Margin="150,26,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
-        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Height="354" Margin="10,55,-106,0" VerticalAlignment="Top" Width="888"/>
+        Title="Könyv keresése" Height="447.613" Width="930">
+
+    <Window.Background>
+        <ImageBrush ImageSource="Images\background.jpg" />
+    </Window.Background>
+    <Grid Margin="30,20">
+        <Grid.Background>
+            <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
+        </Grid.Background>
+        <ComboBox x:Name="OszlopComboBox" HorizontalAlignment="Left" Background="Beige" Margin="150,26,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
+        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Width="810" Height="300"  Margin="20, 70, 20, 50" VerticalAlignment="Top"/>
         <TextBox x:Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="13,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
-        <Button x:Name="kiadButton" Content="Kiadás" Width="50" Height="23" Margin="848,26,10,368" Click="kiadButton_Click"></Button>
+        <Button x:Name="kiadButton" Content="Kiadás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="50" Margin="30,25" VerticalAlignment="Top" Click="kiadButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>
