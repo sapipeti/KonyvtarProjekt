@@ -112,33 +112,36 @@ namespace WebApi_Client_Konyvtaros
                         szerzo += item2;
                     }
                 }
-                for (int i = 0; i < item.NeptunKod.Count; i++)
+                if (item.NeptunKod != null)
                 {
-                    if (!darab.Equals(""))
+                    for (int i = 0; i < item.NeptunKod.Count; i++)
                     {
-                        darab += "," + item.KolcsonzottDB[i];
-                    }
-                    else
-                    {
-                        darab += item.KolcsonzottDB[i];
-                    }
+                        if (!darab.Equals(""))
+                        {
+                            darab += "," + item.KolcsonzottDB[i];
+                        }
+                        else
+                        {
+                            darab += item.KolcsonzottDB[i];
+                        }
 
-                    if (!neptunkod.Equals(""))
-                    {
-                        neptunkod += "," + item.NeptunKod[i];
-                    }
-                    else
-                    {
-                        neptunkod += item.NeptunKod[i];
-                    }
+                        if (!neptunkod.Equals(""))
+                        {
+                            neptunkod += "," + item.NeptunKod[i];
+                        }
+                        else
+                        {
+                            neptunkod += item.NeptunKod[i];
+                        }
 
-                    if (!datum.Equals(""))
-                    {
-                        datum += "," + item.VisszaHozas[i];
-                    }
-                    else
-                    {
-                        datum += item.VisszaHozas[i];
+                        if (!datum.Equals(""))
+                        {
+                            datum += "," + item.VisszaHozas[i];
+                        }
+                        else
+                        {
+                            datum += item.VisszaHozas[i];
+                        }
                     }
                 }
                 konyvek_tabla.Add(new KonyvKonyvtaros(item.Id,item.Cím,item.ISBN,item.Kiadó,item.Kiadás_Év,mufaj,szerzo,item.Darabszám,neptunkod,datum,darab));
