@@ -40,7 +40,7 @@
 
         <TextBox Name="mufajokTextBox" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="140" Margin="53,21,53,91"/>
         <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="53,5,0,0" TextWrapping="Wrap" Text="Műfajok:" VerticalAlignment="Top"/>
-        <ListView Name="mufajokListView" HorizontalAlignment="Left" Height="70" Margin="53,55,0,0" Grid.Row="2"  Grid.Column="0" VerticalAlignment="Top" Width="140">
+        <ListView Name="mufajokListView"  HorizontalAlignment="Left" Height="70" Margin="53,55,0,0" Grid.Row="2"  Grid.Column="0" VerticalAlignment="Top" Width="140">
             <ListView.Resources>
                 <Style TargetType="GridViewColumnHeader">
                     <Setter Property="Visibility" Value="Collapsed" />
