@@ -22,5 +22,8 @@
         <TextBox Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="175,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="175,11,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="312,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
+        <RadioButton Name="kikolcsonozhetoRadioButton" Content="Kikölcsönözhető könyvek"  HorizontalAlignment="Left" Margin="451,15,0,0" VerticalAlignment="Top" Checked="kikolcsonozhetoRadioButton_Checked"/>
+        <RadioButton Name="kikolcsonozottRadioButton" Content="Kikölcsönzött könyvek" IsChecked="True" HorizontalAlignment="Left" Margin="451,35,0,0" VerticalAlignment="Top" Checked="kikolcsonozottRadioButton_Checked"/>
+        
     </Grid>
 </Window>

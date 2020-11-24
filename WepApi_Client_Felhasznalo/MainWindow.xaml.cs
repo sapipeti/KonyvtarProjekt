@@ -24,9 +24,15 @@ namespace WepApi_Client_Felhasznalo
     public partial class MainWindow : Window
     {
         List<Konyv> konyvek = new List<Konyv>();
-        List<KonyvKliens> konyvek_kliens = new List<KonyvKliens>();
+        List<KonyvKliens> konyvek_kikolcsonzott = new List<KonyvKliens>();
+        List<KonyvKliensKolcsonozheto> konyvek_kikolcsonozheto = new List<KonyvKliensKolcsonozheto>();
         string NeptunKod;
         string OszlopNev;
+        Boolean kikolcsonzott = true;
+
+        String[] oszlopok_kikolcsonzott = { "Id", "Cím", "ISBN", "Kiadó", "Kiadás_Év", "Műfajok", "Szerző", "Visszahozas", "KolcsonzottDB" };
+        String[] oszlopok_kikolcsonozheto = { "Id", "Cím", "ISBN", "Kiadó", "Kiadás_Év", "Műfajok", "Szerző", "Darabszám", "KiadhatóDarabszám" };
+
 
         public MainWindow(String NeptunKod)
         {
@@ -34,11 +40,18 @@ namespace WepApi_Client_Felhasznalo
             InitializeComponent();
             udvozles_Label.Content += (" "+NeptunKod);
 
-            String[] oszlopok = { "Id", "Cím", "ISBN", "Kiadó", "Kiadás_Év", "Műfajok", "Szerző", "Visszahozas", "KolcsonzottDB" };
-            OszlopComboBox.ItemsSource = oszlopok;
-
             UpdateData();
-            Tablazat.ItemsSource = konyvek_kliens;
+            if (kikolcsonzott)
+            {
+                Tablazat.ItemsSource = konyvek_kikolcsonzott;
+                OszlopComboBox.ItemsSource = oszlopok_kikolcsonzott;
+            }
+            else
+            {
+                Tablazat.ItemsSource = konyvek_kikolcsonozheto;
+                OszlopComboBox.ItemsSource = oszlopok_kikolcsonozheto;
+            }
+            
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Tablazat.ItemsSource);
             view.Filter = UserFilter;
         }
@@ -86,57 +99,137 @@ namespace WepApi_Client_Felhasznalo
 
         public void UpdateData()
         {
-            konyvek_kliens.Clear();
-            konyvek = KonyvDataProvider.GetKonyvek().ToList();
-            int i = 0, index = -1;
             string mufaj = "", szerzo = "";
-            foreach (var item in konyvek)
+            if (kikolcsonzott)
             {
-                foreach (var neptunkod in item.NeptunKod)
+                konyvek_kikolcsonzott.Clear();
+                konyvek = KonyvDataProvider.GetKonyvek().ToList();
+                int i = 0, index = -1;
+                foreach (var item in konyvek)
                 {
-                    if (neptunkod.ToString().Equals(NeptunKod))
+                    if (item.NeptunKod != null)
                     {
-                        index = i;
-                        break;
+                        foreach (var neptunkod in item.NeptunKod)
+                        {
+                            if (neptunkod.ToString().Equals(NeptunKod))
+                            {
+                                index = i;
+                                break;
+                            }
+                            i++;
+                        }
                     }
-                    i++;
-                }
-                foreach (var item2 in item.Műfajok)
-                {
-                    if (!mufaj.Equals(""))
+                    foreach (var item2 in item.Műfajok)
                     {
-                        mufaj += "," + item2;
-                    }
-                    else
-                    {
-                        mufaj += item2;
-                    }
+                        if (!mufaj.Equals(""))
+                        {
+                            mufaj += "," + item2;
+                        }
+                        else
+                        {
+                            mufaj += item2;
+                        }
 
-
-                }
-                foreach (var item2 in item.Szerző)
-                {
-                    if (!szerzo.Equals(""))
-                    {
-                        szerzo += "," + item2;
                     }
-                    else
+                    foreach (var item2 in item.Szerző)
                     {
-                        szerzo += item2;
+                        if (!szerzo.Equals(""))
+                        {
+                            szerzo += "," + item2;
+                        }
+                        else
+                        {
+                            szerzo += item2;
+                        }
                     }
+                    if (index != -1)
+                    {
+                        konyvek_kikolcsonzott.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo/*, item.VisszaHozas[i], item.KolcsonzottDB[i]*/));
+                    }
+                    mufaj = "";
+                    szerzo = "";
+                    index = -1;
+                    i = 0;
                 }
-                if (index != -1)
+            }
+            else
+            {
+                konyvek_kikolcsonozheto.Clear();
+                konyvek = KonyvDataProvider.GetKonyvek().ToList();
+                int konyvDB=0;
+                foreach (var item in konyvek)
                 {
-                    konyvek_kliens.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo/*, item.VisszaHozas[i], item.KolcsonzottDB[i]*/));
-                }
+                    konyvDB = item.Darabszám;
+                    if (item.KolcsonzottDB != null)
+                    {
+                        foreach (var item2 in item.KolcsonzottDB)
+                        {
+                            konyvDB -= item2;
+                        }
+                    }
+                    foreach (var item2 in item.Műfajok)
+                    {
+                        if (!mufaj.Equals(""))
+                        {
+                            mufaj += "," + item2;
+                        }
+                        else
+                        {
+                            mufaj += item2;
+                        }
 
+                    }
+                    foreach (var item2 in item.Szerző)
+                    {
+                        if (!szerzo.Equals(""))
+                        {
+                            szerzo += "," + item2;
+                        }
+                        else
+                        {
+                            szerzo += item2;
+                        }
+                    }
+                    if (konyvDB > 0)
+                    {
+                        konyvek_kikolcsonozheto.Add(new KonyvKliensKolcsonozheto(item.Id,item.Cím,item.ISBN,item.Kiadó,item.Kiadás_Év,mufaj,szerzo,item.Darabszám,konyvDB));
+                    }
+                    mufaj = "";
+                    szerzo = "";
+                    konyvDB = 0;
+                }
             }
         }
 
         private void OszlopComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (OszlopComboBox.SelectedIndex != -1)
+            {
+                UpdateData();
+                OszlopNev = OszlopComboBox.SelectedItem.ToString();
+            }
+            
+        }
+
+        private void kikolcsonozhetoRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            kikolcsonzott = false;
             UpdateData();
-            OszlopNev = OszlopComboBox.SelectedItem.ToString();
+            Tablazat.ItemsSource = konyvek_kikolcsonozheto;
+            KeresesTextBox.Text = "";
+            OszlopComboBox.SelectedIndex = -1;
+            OszlopComboBox.ItemsSource = oszlopok_kikolcsonozheto;
+        }
+
+        private void kikolcsonozottRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            kikolcsonzott = true;
+            UpdateData();
+            Tablazat.ItemsSource = konyvek_kikolcsonzott;
+            KeresesTextBox.Text = "";
+            OszlopComboBox.SelectedIndex = -1;
+            OszlopComboBox.ItemsSource = oszlopok_kikolcsonzott;
+
         }
     }
 }
