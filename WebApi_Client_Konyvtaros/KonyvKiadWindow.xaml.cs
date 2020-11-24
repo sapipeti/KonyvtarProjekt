@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WebApi_Common.DataProviders;
+using WebApi_Common.Models;
 
 namespace WebApi_Client_Konyvtaros
 {
@@ -20,9 +21,16 @@ namespace WebApi_Client_Konyvtaros
     /// </summary>
     public partial class KonyvKiadWindow : Window
     {
-        public KonyvKiadWindow()
+        public IList<Konyv> _konyvek;
+
+        public KonyvKiadWindow(Konyv konyv)
         {
             InitializeComponent();
+            
+            if(konyv != null)
+            {
+                konyvIdTextBox.Text = konyv.Id.ToString();
+            }
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)
@@ -34,7 +42,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void Kiadas_Click(object sender, RoutedEventArgs e)
         {
-            if(darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
+            if(konyvIdTextBox.Text.Equals("") || darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
             {
                 MessageBox.Show("Kérlek tölts ki minden mezőt!", "Hiba");
             }
