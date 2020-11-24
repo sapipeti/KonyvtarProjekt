@@ -6,12 +6,18 @@
         xmlns:local="clr-namespace:WepApi_Client_Felhasznalo"
         mc:Ignorable="d"
         Title="Kliens" Height="450" Width="916.319">
-    <Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="Images\background.jpg" />
+    </Window.Background>
+    <Grid Margin="30, 20">
+        <Grid.Background>
+            <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ComboBox Name="OszlopComboBox" HorizontalAlignment="Left" Margin="312,27,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
-        <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="354" Margin="10,55,0,0" VerticalAlignment="Top" Width="888"/>
+        <DataGrid Name="Tablazat"  HorizontalAlignment="Left" Height="305" Margin="10,55,0,0" VerticalAlignment="Top" Width="820"/>
         <Label Name="udvozles_Label" Content="Üdvözöllek:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="160"/>
         <TextBox Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="175,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="175,11,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
