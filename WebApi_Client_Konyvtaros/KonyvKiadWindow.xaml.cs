@@ -22,20 +22,30 @@ namespace WebApi_Client_Konyvtaros
     public partial class KonyvKiadWindow : Window
     {
         public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
-        //FelhasznaloAdatok fAdat = FelhasznaloAdatDataProvider.GetData(NeptunKodTextBox.Text.ToString());
-        public Konyv konyv1;
+        FelhasznaloAdatok fAdat;
+        public Konyv konyv1 = new Konyv();
 
-        public KonyvKiadWindow(Konyv konyv)
+        public KonyvKiadWindow(KonyvKonyvtaros konyv)
         {
             InitializeComponent();
             
-            if(konyv != null)
-            {
-                konyvIdTextBox.Text = konyv.Id.ToString();
-                konyvCimTextBox.Text = konyv.Cím;
-                konyvSzerzoTextBox.Text = konyv.Szerző.ToString();
-                konyv1 = konyv;
-            }
+            
+            konyvIdTextBox.Text = konyv.Id.ToString();
+            konyvCimTextBox.Text = konyv.Cím;
+            konyvSzerzoTextBox.Text = konyv.Szerző.ToString();
+
+            konyv1.Cím = konyv.Cím;
+            konyv1.Id = konyv.Id;
+            konyv1.ISBN = konyv.ISBN;
+            konyv1.Kiadás_Év = konyv.Kiadás_Év;
+            konyv1.Kiadó = konyv.Kiadó;
+            konyv1.Szerző.Add(konyv.Szerző);
+            konyv1.VisszaHozas.Add(DateTime.Parse(konyv.VisszaHozas));
+            konyv1.NeptunKod.Add(konyv.NeptunKod);
+            konyv1.KolcsonzottDB.Add(int.Parse(konyv.KolcsonzottDB));
+            konyv1.Műfajok.Add(konyv.Műfajok);
+
+            
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)
@@ -89,7 +99,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void neptunkodTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            fAdat = FelhasznaloAdatDataProvider.GetData(neptunkodTextBox.Text.ToString());
         }
     }
 }

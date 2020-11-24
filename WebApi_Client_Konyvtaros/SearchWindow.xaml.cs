@@ -116,31 +116,38 @@ namespace WebApi_Client_Konyvtaros
                 {
                     for (int i = 0; i < item.NeptunKod.Count; i++)
                     {
-                        if (!darab.Equals(""))
+                        if (item.KolcsonzottDB != null)
                         {
-                            darab += "," + item.KolcsonzottDB[i];
+                            if (!darab.Equals(""))
+                            {
+                                darab += "," + item.KolcsonzottDB[i];
+                            }
+                            else
+                            {
+                                darab += item.KolcsonzottDB[i];
+                            }
                         }
-                        else
+                        if (item.NeptunKod != null)
                         {
-                            darab += item.KolcsonzottDB[i];
+                            if (!neptunkod.Equals(""))
+                            {
+                                neptunkod += "," + item.NeptunKod[i];
+                            }
+                            else
+                            {
+                                neptunkod += item.NeptunKod[i];
+                            }
                         }
-
-                        if (!neptunkod.Equals(""))
+                        if (item.VisszaHozas != null)
                         {
-                            neptunkod += "," + item.NeptunKod[i];
-                        }
-                        else
-                        {
-                            neptunkod += item.NeptunKod[i];
-                        }
-
-                        if (!datum.Equals(""))
-                        {
-                            datum += "," + item.VisszaHozas[i];
-                        }
-                        else
-                        {
-                            datum += item.VisszaHozas[i];
+                            if (!datum.Equals(""))
+                            {
+                                datum += "," + item.VisszaHozas[i];
+                            }
+                            else
+                            {
+                                datum += item.VisszaHozas[i];
+                            }
                         }
                     }
                 }
@@ -161,7 +168,9 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Click(object sender, RoutedEventArgs e)
         {
-            KonyvKiadWindow kkw = new KonyvKiadWindow(new Konyv());
+            KonyvKiadWindow kkw = new KonyvKiadWindow((KonyvKonyvtaros)Tablazat.SelectedItem);
+            kkw.Show();
+            this.Close();
         }
     }
 }

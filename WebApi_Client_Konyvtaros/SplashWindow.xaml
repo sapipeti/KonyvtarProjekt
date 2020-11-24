@@ -33,16 +33,9 @@
             </Button.Resources>
         </Button>
 
-        <Button Grid.Row="2" x:Name="KonyvKiadButton" Content="Könyv kiadása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="15" Click="KonyvKiadButton_Click">
+        <Button Grid.Row="2" x:Name="KonyvAddButton" Content="Könyv hozzádása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="15" Click="KonyvAddButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Grid.Row="3" x:Name="KonyvAddButton" Content="Könyv hozzáadása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="101,23" Click="KonyvAddButton_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
