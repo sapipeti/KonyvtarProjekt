@@ -144,7 +144,7 @@ namespace WepApi_Client_Felhasznalo
                     }
                     if (index != -1)
                     {
-                        konyvek_kikolcsonzott.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo/*, item.VisszaHozas[i], item.KolcsonzottDB[i]*/));
+                        konyvek_kikolcsonzott.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo, item.VisszaHozas[index], item.KolcsonzottDB[index]));
                     }
                     mufaj = "";
                     szerzo = "";

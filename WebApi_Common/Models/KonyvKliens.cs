@@ -22,7 +22,7 @@ namespace WebApi_Common.Models
             return base.ToString();
         }
 
-        public KonyvKliens(long id, string cím, long iSBN, string kiadó, int kiadás_Év, string műfajok, string szerző/*, DateTime visszaHozas, int kolcsonzottDB*/)
+        public KonyvKliens(long id, string cím, long iSBN, string kiadó, int kiadás_Év, string műfajok, string szerző, DateTime visszaHozas, int kolcsonzottDB)
         {
             Id = id;
             Cím = cím;
@@ -31,8 +31,8 @@ namespace WebApi_Common.Models
             Kiadás_Év = kiadás_Év;
             Műfajok = műfajok;
             Szerző = szerző;
-            /*VisszaHozas = visszaHozas;
-            KolcsonzottDB = kolcsonzottDB;*/
+            VisszaHozas = visszaHozas;
+            KolcsonzottDB = kolcsonzottDB;
         }
     }
 }
