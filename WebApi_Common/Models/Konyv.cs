@@ -22,5 +22,24 @@ namespace WebApi_Common.Models
         {
             return base.ToString();
         }
+
+        public Konyv(long id, string cím, long iSBN, string kiadó, int kiadás_Év, List<string> műfajok, List<string> szerző, int darabszám, List<string> neptunKod, List<DateTime> visszaHozas, List<int> kolcsonzottDB)
+        {
+            Id = id;
+            Cím = cím;
+            ISBN = iSBN;
+            Kiadó = kiadó;
+            Kiadás_Év = kiadás_Év;
+            Műfajok = műfajok;
+            Szerző = szerző;
+            Darabszám = darabszám;
+            NeptunKod = neptunKod;
+            VisszaHozas = visszaHozas;
+            KolcsonzottDB = kolcsonzottDB;
+        }
+
+        public Konyv()
+        {
+        }
     }
 }

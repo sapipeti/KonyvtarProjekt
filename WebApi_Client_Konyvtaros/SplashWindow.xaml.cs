@@ -41,6 +41,11 @@ namespace WebApi_Client_Konyvtaros
             this.Close();
         }
 
-
+        private void KonyvAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddBookWindow ab = new AddBookWindow();
+            ab.Show();
+            this.Close();
+        }
     }
 }
