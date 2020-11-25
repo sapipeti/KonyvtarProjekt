@@ -168,9 +168,20 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Click(object sender, RoutedEventArgs e)
         {
+            bool hiba = false;
             KonyvKiadWindow kkw = new KonyvKiadWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
-            kkw.Show();
-            this.Close();
+            try
+            {
+                kkw.Show();
+            }
+            catch (Exception)
+            {
+                hiba = true;
+            }
+            if (!hiba)
+            {
+                this.Close();
+            }
         }
     }
 }

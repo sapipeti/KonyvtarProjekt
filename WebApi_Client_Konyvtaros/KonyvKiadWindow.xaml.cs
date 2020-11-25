@@ -67,7 +67,16 @@ namespace WebApi_Client_Konyvtaros
             updated_konyv.KolcsonzottDB = konyv.KolcsonzottDB;
             updated_konyv.Műfajok = konyv.Műfajok;
 
-
+            //Megnézzük, hogy van e bent könyv a könyvtárban.
+            int elerhetoDB = konyv.Darabszám;
+            foreach (var item in konyv.KolcsonzottDB)
+            {
+                elerhetoDB -= item;
+            }
+            MessageBox.Show("Az adott könyvből nincs elérhető a könyvtárban", "Hiba");
+            /*SearchWindow sw = new SearchWindow();
+            sw.Show();*/
+            this.Close();
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)
@@ -82,7 +91,7 @@ namespace WebApi_Client_Konyvtaros
             if (darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
             {
                 MessageBox.Show("Kérlek tölts ki minden mezőt!", "Hiba");
-            }
+            } 
             else
             {
                 if (ValidateKiad())
