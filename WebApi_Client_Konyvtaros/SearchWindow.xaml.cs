@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -24,6 +26,7 @@ namespace WebApi_Client_Konyvtaros
         List<Konyv> konyvek = new List<Konyv>();
         List<KonyvKonyvtaros> konyvek_tabla = new List<KonyvKonyvtaros>();
         string OszlopNev;
+        CollectionView view;
 
         public SearchWindow()
         {
@@ -34,8 +37,50 @@ namespace WebApi_Client_Konyvtaros
 
             UpdateData();
             Tablazat.ItemsSource = konyvek_tabla;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Tablazat.ItemsSource);
+
+            view = (CollectionView)CollectionViewSource.GetDefaultView(Tablazat.ItemsSource);
             view.Filter = UserFilter;
+
+            ColorDataGridRows();
+        }
+
+        //Beszinezzük azokat a sorokat amelyekben szereplő könyveket nem lehet kiadni.
+        public void ColorDataGridRows()
+        {
+            var itemsSource = view as IEnumerable;
+            Tablazat.ItemContainerGenerator.StatusChanged += (z, e) =>
+            {
+                if (itemsSource != null)
+                {
+                    int sor = 0;
+                    foreach (var item in itemsSource.OfType<KonyvKonyvtaros>())
+                    {
+                        int prop = item.Darabszám;
+                        string prop2 = item.KolcsonzottDB;
+                        string[] tomb = prop2.Split(',');
+                        //A tömböt int tömbbé alakítjuk
+                        int[] myInts = Array.ConvertAll(tomb, s => int.Parse(s));
+                        for (int i = 0; i < myInts.Length; i++)
+                        {
+                            prop -= myInts[i];
+                        }
+                        //Feltétel a színezéshez
+                        if (prop < 1)
+                        {
+                            //Táblázat sor beszínezése
+                            if (Tablazat.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+                            {
+                                DataGridRow row = (DataGridRow)Tablazat.ItemContainerGenerator.ContainerFromIndex(sor);
+                                if (row != null)
+                                {
+                                    row.Background = Brushes.Red;
+                                }
+                            }
+                        }
+                        sor++;
+                    }
+                    }
+            };
         }
 
         private bool UserFilter(object item)
@@ -72,8 +117,6 @@ namespace WebApi_Client_Konyvtaros
                         return ((item as KonyvKonyvtaros).Darabszám.ToString().IndexOf(KeresesTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
                     default: return true;
                 }
-
-
             }
 
         }
@@ -81,6 +124,7 @@ namespace WebApi_Client_Konyvtaros
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(Tablazat.ItemsSource).Refresh();
+            ColorDataGridRows();
         }
 
         public void UpdateData()
