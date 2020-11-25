@@ -29,7 +29,7 @@ namespace WebApi_Client_Konyvtaros
         {
             InitializeComponent();
 
-            String[] oszlopok = { "Id", "Cím", "ISBN", "Kiadó", "Kiadás_Év", "Műfajok", "Szerző", "Visszahozas", "KolcsonzottDB", "NeptunKod","Darabszam" };
+            String[] oszlopok = { "Id", "Cím", "ISBN", "Kiadó", "Kiadás_Év", "Műfajok", "Szerző", "Visszahozas", "KolcsonzottDB", "NeptunKod", "Darabszam" };
             OszlopComboBox.ItemsSource = oszlopok;
 
             UpdateData();
@@ -87,7 +87,7 @@ namespace WebApi_Client_Konyvtaros
         {
             konyvek_tabla.Clear();
             konyvek = KonyvDataProvider.GetKonyvek().ToList();
-            string mufaj = "", szerzo = "", darab="", neptunkod="", datum="";
+            string mufaj = "", szerzo = "", darab = "", neptunkod = "", datum = "";
             foreach (var item in konyvek)
             {
                 foreach (var item2 in item.Műfajok)
@@ -151,7 +151,7 @@ namespace WebApi_Client_Konyvtaros
                         }
                     }
                 }
-                konyvek_tabla.Add(new KonyvKonyvtaros(item.Id,item.Cím,item.ISBN,item.Kiadó,item.Kiadás_Év,mufaj,szerzo,item.Darabszám,neptunkod,datum,darab));
+                konyvek_tabla.Add(new KonyvKonyvtaros(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo, item.Darabszám, neptunkod, datum, darab));
                 mufaj = "";
                 szerzo = "";
                 darab = "";
@@ -168,7 +168,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Click(object sender, RoutedEventArgs e)
         {
-            KonyvKiadWindow kkw = new KonyvKiadWindow((KonyvKonyvtaros)Tablazat.SelectedItem);
+            KonyvKiadWindow kkw = new KonyvKiadWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
             kkw.Show();
             this.Close();
         }

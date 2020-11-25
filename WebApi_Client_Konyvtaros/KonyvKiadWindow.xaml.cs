@@ -23,29 +23,51 @@ namespace WebApi_Client_Konyvtaros
     {
         public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
         FelhasznaloAdatok fAdat;
-        public Konyv konyv1 = new Konyv();
+        public Konyv konyv = new Konyv();
+        public Konyv updated_konyv = new Konyv();
 
-        public KonyvKiadWindow(KonyvKonyvtaros konyv)
+        public KonyvKiadWindow(long id)
         {
             InitializeComponent();
-            
-            
+
+            foreach (var item in _konyvek)
+            {
+                if (item.Id == id)
+                {
+                    konyv = item;
+                    break;
+                }
+            }
+
             konyvIdTextBox.Text = konyv.Id.ToString();
             konyvCimTextBox.Text = konyv.Cím;
-            konyvSzerzoTextBox.Text = konyv.Szerző.ToString();
+            int i = 0;
+            foreach (var item in konyv.Szerző)
+            {
+                if (i != 0)
+                {
+                    konyvSzerzoTextBox.Text += "," + item;
+                }
+                else
+                {
+                    konyvSzerzoTextBox.Text += item;
+                }
+                i++;
+            }
 
-            konyv1.Cím = konyv.Cím;
-            konyv1.Id = konyv.Id;
-            konyv1.ISBN = konyv.ISBN;
-            konyv1.Kiadás_Év = konyv.Kiadás_Év;
-            konyv1.Kiadó = konyv.Kiadó;
-            konyv1.Szerző.Add(konyv.Szerző);
-            konyv1.VisszaHozas.Add(DateTime.Parse(konyv.VisszaHozas));
-            konyv1.NeptunKod.Add(konyv.NeptunKod);
-            konyv1.KolcsonzottDB.Add(int.Parse(konyv.KolcsonzottDB));
-            konyv1.Műfajok.Add(konyv.Műfajok);
+            updated_konyv.Cím = konyv.Cím;
+            updated_konyv.Id = konyv.Id;
+            updated_konyv.ISBN = konyv.ISBN;
+            updated_konyv.Darabszám = konyv.Darabszám;
+            updated_konyv.Kiadás_Év = konyv.Kiadás_Év;
+            updated_konyv.Kiadó = konyv.Kiadó;
+            updated_konyv.Szerző = konyv.Szerző;
+            updated_konyv.VisszaHozas = konyv.VisszaHozas;
+            updated_konyv.NeptunKod = konyv.NeptunKod;
+            updated_konyv.KolcsonzottDB = konyv.KolcsonzottDB;
+            updated_konyv.Műfajok = konyv.Műfajok;
 
-            
+
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)
@@ -57,7 +79,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void Kiadas_Click(object sender, RoutedEventArgs e)
         {
-            if(darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
+            if (darabszamTextBox.Text.Equals("") || !datePicker.SelectedDate.HasValue || neptunkodTextBox.Text.Equals(""))
             {
                 MessageBox.Show("Kérlek tölts ki minden mezőt!", "Hiba");
             }
@@ -65,10 +87,27 @@ namespace WebApi_Client_Konyvtaros
             {
                 if (ValidateKiad())
                 {
-                    konyv1.NeptunKod.Add(neptunkodTextBox.Text);
-                    konyv1.KolcsonzottDB.Add(int.Parse(darabszamTextBox.Text));
-                    konyv1.VisszaHozas.Add(datePicker.SelectedDate.Value);
-                    KonyvDataProvider.UpdateKonyv(konyv1);
+                    if (updated_konyv.NeptunKod == null)
+                    {
+                        updated_konyv.NeptunKod = new List<string>();
+                    }
+                    updated_konyv.NeptunKod.Add(neptunkodTextBox.Text.ToString());
+
+                    if (updated_konyv.KolcsonzottDB == null)
+                    {
+                        updated_konyv.KolcsonzottDB = new List<int>();
+                    }
+                    updated_konyv.KolcsonzottDB.Add(int.Parse(darabszamTextBox.Text));
+
+                    if (updated_konyv.VisszaHozas == null)
+                    {
+                        updated_konyv.VisszaHozas = new List<DateTime>();
+                    }
+                    updated_konyv.VisszaHozas.Add(datePicker.SelectedDate.Value);
+                    KonyvDataProvider.UpdateKonyv(updated_konyv);
+
+                    MessageBox.Show("Sikeres könyvkiadás " + neptunkodTextBox.Text.ToString() + " felhasználónak!");
+
                     SplashWindow sw = new SplashWindow();
                     sw.Show();
                     this.Close();

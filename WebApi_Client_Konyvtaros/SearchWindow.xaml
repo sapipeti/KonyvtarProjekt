@@ -15,7 +15,7 @@
             <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
         </Grid.Background>
         <ComboBox x:Name="OszlopComboBox" HorizontalAlignment="Left" Background="Beige" Margin="150,26,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
-        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Width="810" Height="300"  Margin="20, 70, 20, 50" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Width="810" Height="297"  Margin="20,70,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="13,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
