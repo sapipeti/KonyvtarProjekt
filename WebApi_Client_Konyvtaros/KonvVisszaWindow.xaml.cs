@@ -126,19 +126,31 @@ namespace WebApi_Client_Konyvtaros
         private void neptunkodTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             int i = 0;
+            DateTime visszahozasDatum = DateTime.MinValue;
             _konyvek = KonyvDataProvider.GetKonyvek().ToList();
             foreach (var item in _konyvek)
             {
                 foreach (var item2 in item.NeptunKod)
                 {
-                    if (item2.Equals(neptunkodTextBox.Text.ToString()) && item.Id==Convert.ToInt64(konyvIdTextBox.Text.ToString()))
+                    if (item2.Equals(neptunkodTextBox.Text.ToString()) && item.Id == Convert.ToInt64(konyvIdTextBox.Text.ToString()))
                     {
                         darabszamTextBox.Text = item.KolcsonzottDB[i].ToString();
+                        datumTextBox.Text = item.VisszaHozas[i].ToString();
+                        visszahozasDatum = item.VisszaHozas[i];
                         break;
                     }
                     i++;
                 }
                 i = 0;
+            }
+            if (visszahozasDatum != DateTime.MinValue) { 
+            DateTime thisDay = DateTime.Today;
+                int result = DateTime.Compare(visszahozasDatum, thisDay);
+                if (result < 1)
+                {
+                    datumTextBox.Background = Brushes.Red;
+                    MessageBox.Show("A felhasználó a megadott dátumot túllépte!");
+                }
             }
         }
     }
