@@ -73,10 +73,11 @@ namespace WebApi_Client_Konyvtaros
             {
                 elerhetoDB -= item;
             }
-            MessageBox.Show("Az adott könyvből nincs elérhető a könyvtárban", "Hiba");
-            /*SearchWindow sw = new SearchWindow();
-            sw.Show();*/
-            this.Close();
+            if (elerhetoDB < 1)
+            {
+                MessageBox.Show("Az adott könyvből nincs elérhető a könyvtárban", "Hiba");
+                this.Close();
+            }
         }
 
         private void Megsem_Click(object sender, RoutedEventArgs e)

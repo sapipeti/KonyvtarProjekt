@@ -58,26 +58,35 @@ namespace WebApi_Client_Konyvtaros
                         int prop = item.Darabszám;
                         string prop2 = item.KolcsonzottDB;
                         string[] tomb = prop2.Split(',');
+                        int[] myInts;
                         //A tömböt int tömbbé alakítjuk
-                        int[] myInts = Array.ConvertAll(tomb, s => int.Parse(s));
-                        for (int i = 0; i < myInts.Length; i++)
+                        if (!prop2.Equals(""))
                         {
-                            prop -= myInts[i];
+                            myInts = Array.ConvertAll(tomb, s => int.Parse(s));
                         }
-                        //Feltétel a színezéshez
-                        if (prop < 1)
+                        else
                         {
-                            //Táblázat sor beszínezése
-                            if (Tablazat.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+                            myInts = new int[] {0};
+                        }
+                        for (int i = 0; i < myInts.Length; i++)
                             {
-                                DataGridRow row = (DataGridRow)Tablazat.ItemContainerGenerator.ContainerFromIndex(sor);
-                                if (row != null)
+                                prop -= myInts[i];
+                            }
+                            //Feltétel a színezéshez
+                            if (prop < 1)
+                            {
+                                //Táblázat sor beszínezése
+                                if (Tablazat.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
                                 {
-                                    row.Background = Brushes.Red;
+                                    DataGridRow row = (DataGridRow)Tablazat.ItemContainerGenerator.ContainerFromIndex(sor);
+                                    if (row != null)
+                                    {
+                                        row.Background = Brushes.Red;
+                                    }
                                 }
                             }
-                        }
-                        sor++;
+                            sor++;
+                        
                     }
                     }
             };
@@ -217,6 +226,24 @@ namespace WebApi_Client_Konyvtaros
             try
             {
                 kkw.Show();
+            }
+            catch (Exception)
+            {
+                hiba = true;
+            }
+            if (!hiba)
+            {
+                this.Close();
+            }
+        }
+
+        private void kiadButton_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            bool hiba = false;
+            KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+            try
+            {
+                kvw.Show();
             }
             catch (Exception)
             {

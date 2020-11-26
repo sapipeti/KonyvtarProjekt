@@ -76,6 +76,9 @@
     <Compile Include="AddBookWindow.xaml.cs">
       <DependentUpon>AddBookWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KonvVisszaWindow.xaml.cs">
+      <DependentUpon>KonvVisszaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KonyvKiadWindow.xaml.cs">
       <DependentUpon>KonyvKiadWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KonvVisszaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

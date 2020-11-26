@@ -45,5 +45,10 @@ namespace WebApi_Client_Konyvtaros
         {
 
         }
+
+        private void KonyvVissza_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

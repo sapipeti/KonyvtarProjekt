@@ -26,6 +26,13 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Button x:Name="kiadButton_Copy" Content="Visszahozás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,85,0" VerticalAlignment="Top" Click="kiadButton_Copy_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>
