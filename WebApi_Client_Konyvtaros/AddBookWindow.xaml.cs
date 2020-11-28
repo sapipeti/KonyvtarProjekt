@@ -57,6 +57,9 @@ namespace WebApi_Client_Konyvtaros
                 KonyvDataProvider.CreateKonyv(new WebApi_Common.Models.Konyv(maxID, konyvcimTextBox.Text, Convert.ToInt64(isbnTextBox.Text), kiadoTextBox.Text, Convert.ToInt32(kiadasevTextBox.Text), mufajokLista, szerzokLista, Convert.ToInt32(darabszamTextBox.Text), new List<string>(), new List<DateTime>(), new List<int>()));
                 MessageBox.Show("Sikeres könyv létrehozás!");
                 maxID = -1;
+                SplashWindow sw = new SplashWindow();
+                sw.Show();
+                this.Close();
             }
         }
 
