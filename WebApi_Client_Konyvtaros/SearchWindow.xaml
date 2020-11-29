@@ -33,6 +33,20 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Button x:Name="editButton" Content="Módosítás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,170,0" VerticalAlignment="Top" Click="editButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="backButton" Content="Vissza" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,255,0" VerticalAlignment="Top" Click="backButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>

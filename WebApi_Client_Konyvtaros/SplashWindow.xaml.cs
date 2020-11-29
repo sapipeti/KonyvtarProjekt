@@ -40,15 +40,5 @@ namespace WebApi_Client_Konyvtaros
             ab.Show();
             this.Close();
         }
-
-        private void KonyvEditButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void KonyvVissza_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

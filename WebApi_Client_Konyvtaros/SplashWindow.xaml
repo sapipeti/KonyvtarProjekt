@@ -20,7 +20,6 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Content="Egyetemi könyvtár" Margin="15" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"></Label>
@@ -34,14 +33,6 @@
         </Button>
 
         <Button Grid.Row="2" x:Name="KonyvAddButton" Content="Könyv hozzádása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="15" Click="KonyvAddButton_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button Grid.Row="3" x:Name="KonyvEditButton" Content="Könyv módosítása" Width="150" Height="40" Background="Beige" HorizontalAlignment="Center" Margin="15" Click="KonyvEditButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>

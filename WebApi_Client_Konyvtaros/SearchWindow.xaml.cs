@@ -239,11 +239,32 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Copy_Click(object sender, RoutedEventArgs e)
         {
+            if (int.Parse(((KonyvKonyvtaros)Tablazat.SelectedItem).KolcsonzottDB) > 0)
+            {
+                bool hiba = false;
+                KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+                try
+                {
+                    kvw.Show();
+                }
+                catch (Exception)
+                {
+                    hiba = true;
+                }
+                if (!hiba)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
             bool hiba = false;
-            KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+            KonyvEditWindow kew = new KonyvEditWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
             try
             {
-                kvw.Show();
+                kew.Show();
             }
             catch (Exception)
             {
@@ -253,6 +274,13 @@ namespace WebApi_Client_Konyvtaros
             {
                 this.Close();
             }
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            SplashWindow sw = new SplashWindow();
+            sw.Show();
+            this.Close();
         }
     }
 }
