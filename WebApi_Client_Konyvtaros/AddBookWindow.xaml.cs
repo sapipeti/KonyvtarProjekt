@@ -103,6 +103,13 @@ namespace WebApi_Client_Konyvtaros
                 MessageBox.Show("Adj meg egy szerzőt!");
             }
         }
+
+        private void megsemButton_Click(object sender, RoutedEventArgs e)
+        {
+            SplashWindow sw = new SplashWindow();
+            sw.Show();
+            this.Close();
+        }
     }
     
 }

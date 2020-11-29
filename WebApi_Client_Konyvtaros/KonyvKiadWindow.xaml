@@ -51,14 +51,14 @@
         <Label Grid.Row="4" Grid.Column="1" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Content="Határidő:"></Label>
         <DatePicker Name="datePicker" Grid.Row="5" Grid.Column="1" Margin="10, 10, 10, 10" Text="Add meg a dátumot" VerticalAlignment="Center" Width="150"></DatePicker>
 
-        <Button Grid.Row="6" Grid.Column="0" Height="30" Width="80" Margin="60,0,56,90" Content="Mégsem" Background="Beige" Click="Megsem_Click" VerticalAlignment="Bottom" >
+        <Button Grid.Row="6" Grid.Column="0" Height="30" Width="80" Margin="0,0,0,90" Content="Mégsem" Background="Beige" Click="Megsem_Click" VerticalAlignment="Bottom" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Grid.Row="6" Grid.Column="1" Height="30" Width="80" Content="Kiadás" Click="Kiadas_Click" Background="Beige" Margin="58,35,58,90" >
+        <Button Grid.Row="6" Grid.Column="1" Height="30" Width="80" Content="Kiadás" Click="Kiadas_Click" Background="Beige" Margin="0,35,0,90" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>

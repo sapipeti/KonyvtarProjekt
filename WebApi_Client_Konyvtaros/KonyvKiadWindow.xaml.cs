@@ -135,7 +135,7 @@ namespace WebApi_Client_Konyvtaros
             }
         }
 
-        private bool ValidateKiad()
+        public bool ValidateKiad()
         {
             if (String.IsNullOrEmpty(neptunkodTextBox.Text))
             {

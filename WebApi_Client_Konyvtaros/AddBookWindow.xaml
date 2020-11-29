@@ -41,14 +41,21 @@
 
         <TextBox Name="darabszamTextBox" Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="140"/>
         <TextBlock Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Left" Margin="53,5,0,0" TextWrapping="Wrap" Text="Darabszám:" VerticalAlignment="Top"/>
-        <Button Content="Létrehoz" Grid.Column="1" Background="Beige" HorizontalAlignment="Center" Margin="135,23,23,23" Grid.Row="3" VerticalAlignment="Center" Width="74" Height="22" Click="letrehozButtonAction">
+        <Button Content="Létrehoz" Grid.Column="1" Background="Beige" HorizontalAlignment="Center" Margin="170,23,0,23" Grid.Row="3" VerticalAlignment="Center" Width="74" Height="22" Click="letrehozButtonAction">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Cellák törlése" Grid.Column="1" Background="Beige" HorizontalAlignment="Center" Margin="23,23,135,23" Grid.Row="3" VerticalAlignment="Center" Width="75" Height="22" Click="torolButtonAction">
+        <Button Content="Cellák törlése" Grid.Column="1" Background="Beige" HorizontalAlignment="Center" Margin="0,23,0,23" Grid.Row="3" VerticalAlignment="Center" Width="75" Height="22" Click="torolButtonAction">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Mégsem" Grid.Column="1" Background="Beige" HorizontalAlignment="Center" Margin="0,23,170,23" Grid.Row="3" VerticalAlignment="Center" Width="75" Height="22" Click="megsemButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>

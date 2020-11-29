@@ -221,31 +221,13 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Click(object sender, RoutedEventArgs e)
         {
-            bool hiba = false;
-            KonyvKiadWindow kkw = new KonyvKiadWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
-            try
-            {
-                kkw.Show();
-            }
-            catch (Exception)
-            {
-                hiba = true;
-            }
-            if (!hiba)
-            {
-                this.Close();
-            }
-        }
-
-        private void kiadButton_Copy_Click(object sender, RoutedEventArgs e)
-        {
-            if (((KonyvKonyvtaros)Tablazat.SelectedItem).KolcsonzottDB != "")
+            if (Tablazat.SelectedItem != null)
             {
                 bool hiba = false;
-                KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+                KonyvKiadWindow kkw = new KonyvKiadWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
                 try
                 {
-                    kvw.Show();
+                    kkw.Show();
                 }
                 catch (Exception)
                 {
@@ -258,21 +240,48 @@ namespace WebApi_Client_Konyvtaros
             }
         }
 
+        private void kiadButton_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            if (Tablazat.SelectedItem != null)
+            {
+                if (((KonyvKonyvtaros)Tablazat.SelectedItem).KolcsonzottDB != "")
+                {
+                    bool hiba = false;
+                    KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+                    try
+                    {
+                        kvw.Show();
+                    }
+                    catch (Exception)
+                    {
+                        hiba = true;
+                    }
+                    if (!hiba)
+                    {
+                        this.Close();
+                    }
+                }
+            }
+        }
+
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            bool hiba = false;
-            KonyvEditWindow kew = new KonyvEditWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
-            try
+            if (Tablazat.SelectedItem != null)
             {
-                kew.Show();
-            }
-            catch (Exception)
-            {
-                hiba = true;
-            }
-            if (!hiba)
-            {
-                this.Close();
+                bool hiba = false;
+                KonyvEditWindow kew = new KonyvEditWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
+                try
+                {
+                    kew.Show();
+                }
+                catch (Exception)
+                {
+                    hiba = true;
+                }
+                if (!hiba)
+                {
+                    this.Close();
+                }
             }
         }
 
