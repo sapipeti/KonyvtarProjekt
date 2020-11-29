@@ -1,1 +1,14 @@
-[{"neptunKod":"12345","jelszo":"12345"}]
+[
+  {
+    "neptunKod": "12345",
+    "jelszo": "12345"
+  },
+  {
+    "neptunKod": "54321",
+    "jelszo": "54321"
+  },
+  {
+    "neptunKod": "15555",
+    "jelszo": "15555"
+  }
+]

@@ -42,7 +42,7 @@
         <TextBox Name="konyvSzerzoTextBox" IsEnabled="False" Grid.Row="5" Grid.Column="0" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>
         
         <Label Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Black"  Content="Neptunkód:"></Label>
-        <TextBox Name="neptunkodTextBox" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150" Text="{Binding fAdatString, UpdateSourceTrigger=PropertyChanged}" behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding fAdatString}" ></TextBox>
+        <TextBox Name="neptunkodTextBox" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10" TextAlignment="Center" VerticalAlignment="Center" Width="150" Text="{Binding TestText, UpdateSourceTrigger=PropertyChanged}" behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding fAdatString}" ></TextBox>
 
         <Label Grid.Row="2" Grid.Column="1" Margin="10, 10, 10, 10" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Content="Darabszám:"></Label>
         <TextBox Name="darabszamTextBox" Grid.Row="3" Grid.Column="1" Width="150" Margin="10, 10, 10, 10"  TextAlignment="Center" VerticalAlignment="Center"></TextBox>

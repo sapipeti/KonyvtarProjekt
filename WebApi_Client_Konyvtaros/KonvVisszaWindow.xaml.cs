@@ -22,13 +22,24 @@ namespace WebApi_Client_Konyvtaros
     public partial class KonvVisszaWindow : Window
     {
         public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
-        FelhasznaloAdatok fAdat;
+        public List<FelhasznaloAdatok> fAdat = FelhasznaloAdatDataProvider.GetData().ToList();
         public Konyv konyv = new Konyv();
         public Konyv updated_konyv = new Konyv();
+
+        public List<string> fAdatString { get; set; }
+        public string TestText { get; set; }
 
         public KonvVisszaWindow(long id)
         {
             InitializeComponent();
+
+            fAdatString = new List<string>();
+            foreach (var item in fAdat)
+            {
+                fAdatString.Add(item.neptunKod.ToString());
+            }
+
+            DataContext = this;
 
             foreach (var item in _konyvek)
             {
@@ -125,6 +136,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void neptunkodTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Boolean lefutott = false;
             int i = 0;
             DateTime visszahozasDatum = DateTime.MinValue;
             _konyvek = KonyvDataProvider.GetKonyvek().ToList();
@@ -137,12 +149,19 @@ namespace WebApi_Client_Konyvtaros
                         darabszamTextBox.Text = item.KolcsonzottDB[i].ToString();
                         datumTextBox.Text = item.VisszaHozas[i].ToString();
                         visszahozasDatum = item.VisszaHozas[i];
+                        lefutott = true;
                         break;
                     }
                     i++;
                 }
                 i = 0;
             }
+            if (!lefutott)
+            {
+                darabszamTextBox.Text = "";
+                datumTextBox.Text = "";
+            }
+
             if (visszahozasDatum != DateTime.MinValue) { 
             DateTime thisDay = DateTime.Today;
                 int result = DateTime.Compare(visszahozasDatum, thisDay);
