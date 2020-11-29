@@ -67,6 +67,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFTextBoxAutoComplete, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFTextBoxAutoComplete.1.0.5\lib\net40\WPFTextBoxAutoComplete.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -78,6 +81,9 @@
     </Compile>
     <Compile Include="KonvVisszaWindow.xaml.cs">
       <DependentUpon>KonvVisszaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KonyvEditWindow.xaml.cs">
+      <DependentUpon>KonyvEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="KonyvKiadWindow.xaml.cs">
       <DependentUpon>KonyvKiadWindow.xaml</DependentUpon>
@@ -96,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="KonvVisszaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KonyvEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

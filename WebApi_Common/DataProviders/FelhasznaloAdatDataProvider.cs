@@ -33,6 +33,26 @@ namespace WebApi_Common.DataProviders
 
         }
 
+        public static IList<FelhasznaloAdatok> GetData()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync(_url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var rawData = response.Content.ReadAsStringAsync().Result;
+                    var fAdat = JsonConvert.DeserializeObject<IList<FelhasznaloAdatok>>(rawData);
+                    return fAdat;
+                }
+                else
+                {
+                    throw new InvalidOperationException(response.StatusCode.ToString());
+                }
+            }
+
+        }
+
         public static void CreateFelhasznalo(FelhasznaloAdatok fAdat)
         {
             using(var client = new HttpClient())

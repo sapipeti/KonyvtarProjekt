@@ -22,7 +22,7 @@ namespace WebApi_Client_Konyvtaros
     public partial class KonyvKiadWindow : Window
     {
         public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
-        FelhasznaloAdatok fAdat;
+        public List<FelhasznaloAdatok> fAdat = FelhasznaloAdatDataProvider.GetData().ToList();
         public Konyv konyv = new Konyv();
         public Konyv updated_konyv = new Konyv();
 
@@ -144,11 +144,6 @@ namespace WebApi_Client_Konyvtaros
                 return false;
             }
             return true;
-        }
-
-        private void neptunkodTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            fAdat = FelhasznaloAdatDataProvider.GetData(neptunkodTextBox.Text.ToString());
         }
     }
 }
