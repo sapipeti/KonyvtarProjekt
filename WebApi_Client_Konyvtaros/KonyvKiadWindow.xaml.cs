@@ -29,7 +29,12 @@ namespace WebApi_Client_Konyvtaros
         public Konyv konyv = new Konyv();
         public Konyv updated_konyv = new Konyv();
 
-        public KonyvKiadWindow(long id)
+        public KonyvKiadWindow()
+        {
+            
+        }
+
+            public KonyvKiadWindow(long id)
         {
             InitializeComponent(); 
             fAdatString = new List<string>();
@@ -105,7 +110,10 @@ namespace WebApi_Client_Konyvtaros
             } 
             else
             {
-                if (ValidateKiad())
+                var nk = neptunkodTextBox.Text;
+                var db = darabszamTextBox.Text;
+                var dt = datePicker.SelectedDate.HasValue;
+                if (ValidateKiad(nk, db, dt))
                 {
                     if (updated_konyv.NeptunKod == null)
                     {
@@ -135,20 +143,20 @@ namespace WebApi_Client_Konyvtaros
             }
         }
 
-        public bool ValidateKiad()
+        public bool ValidateKiad(String neptunkod, String darabszam, bool datetime)
         {
-            if (String.IsNullOrEmpty(neptunkodTextBox.Text))
+            if (String.IsNullOrEmpty(neptunkod))
             {
                 MessageBox.Show("Adj meg neptunkódot!");
                 return false;
             }
 
-            if (String.IsNullOrEmpty(darabszamTextBox.Text))
+            if (String.IsNullOrEmpty(darabszam))
             {
                 MessageBox.Show("Adj meg darabszámot!");
                 return false;
             }
-            if (!datePicker.SelectedDate.HasValue)
+            if (!datetime)
             {
                 MessageBox.Show("Válassz ki dátumot!");
                 return false;
