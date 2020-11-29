@@ -23,12 +23,18 @@ namespace WebApi_Client_Konyvtaros
     {
         public List<Konyv> _konyvek = KonyvDataProvider.GetKonyvek().ToList();
         public List<FelhasznaloAdatok> fAdat = FelhasznaloAdatDataProvider.GetData().ToList();
+        public List<String> fAdatString = new List<String>();
         public Konyv konyv = new Konyv();
         public Konyv updated_konyv = new Konyv();
 
         public KonyvKiadWindow(long id)
         {
             InitializeComponent();
+
+            foreach (var item in fAdat)
+            {
+                fAdatString.Add(item.neptunKod.ToString());
+            }
 
             foreach (var item in _konyvek)
             {

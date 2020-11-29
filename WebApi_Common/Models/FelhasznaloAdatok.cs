@@ -21,7 +21,7 @@ namespace WebApi_Common.Models
 
         public override string ToString()
         {
-            return neptunKod;
+            return base.ToString();
         }
     }
 }

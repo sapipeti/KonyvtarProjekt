@@ -239,7 +239,7 @@ namespace WebApi_Client_Konyvtaros
 
         private void kiadButton_Copy_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(((KonyvKonyvtaros)Tablazat.SelectedItem).KolcsonzottDB) > 0)
+            if (((KonyvKonyvtaros)Tablazat.SelectedItem).KolcsonzottDB != "")
             {
                 bool hiba = false;
                 KonvVisszaWindow kvw = new KonvVisszaWindow(((KonyvKonyvtaros)Tablazat.SelectedItem).Id);
