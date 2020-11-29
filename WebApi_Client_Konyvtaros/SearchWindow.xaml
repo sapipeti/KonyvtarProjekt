@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebApi_Client_Konyvtaros"
         mc:Ignorable="d"
-        Title="Könyv keresése" Height="447.613" Width="930">
+        ResizeMode="NoResize"
+        Title="Könyv keresése" Height="550" Width="1200">
 
     <Window.Background>
         <ImageBrush ImageSource="Images\background.jpg" />
@@ -15,32 +16,32 @@
             <SolidColorBrush Color="BurlyWood" Opacity="0.8"></SolidColorBrush>
         </Grid.Background>
         <ComboBox x:Name="OszlopComboBox" HorizontalAlignment="Left" Background="Beige" Margin="150,26,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
-        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Width="810" Height="297"  Margin="20,70,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Width="1114" Height="401"  Margin="10,70,10,10" VerticalAlignment="Top"/>
         <TextBox x:Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="13,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
-        <Button x:Name="kiadButton" Content="Kiadás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="50" Margin="30,25" VerticalAlignment="Top" Click="kiadButton_Click">
+        <Button x:Name="kiadButton" Content="Kiadás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="50" Margin="0,24,11,0" VerticalAlignment="Top" Click="kiadButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="kiadButton_Copy" Content="Visszahozás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,85,0" VerticalAlignment="Top" Click="kiadButton_Copy_Click">
+        <Button x:Name="kiadButton_Copy" Content="Visszahozás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,24,66,0" VerticalAlignment="Top" Click="kiadButton_Copy_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="editButton" Content="Módosítás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,170,0" VerticalAlignment="Top" Click="editButton_Click">
+        <Button x:Name="editButton" Content="Módosítás" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,24,151,0" VerticalAlignment="Top" Click="editButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="backButton" Content="Vissza" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,25,255,0" VerticalAlignment="Top" Click="backButton_Click">
+        <Button x:Name="backButton" Content="Vissza" Height="25" Background="Beige" HorizontalAlignment="Right" Width="80" Margin="0,24,236,0" VerticalAlignment="Top" Click="backButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>

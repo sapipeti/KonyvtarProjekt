@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WepApi_Client_Felhasznalo"
         mc:Ignorable="d"
-        Title="Kliens" Height="450" Width="916.319">
+        ResizeMode="NoResize"
+        Title="Kliens" Height="550" Width="1200">
     <Window.Background>
         <ImageBrush ImageSource="Images\background.jpg" />
     </Window.Background>
@@ -17,13 +18,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ComboBox Name="OszlopComboBox" HorizontalAlignment="Left" Margin="312,27,0,0" VerticalAlignment="Top" Width="120" Height="23" SelectionChanged="OszlopComboBox_SelectionChanged" />
-        <DataGrid Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Height="305" Margin="10,55,0,0" VerticalAlignment="Top" Width="820"/>
-        <Label Name="udvozles_Label" Content="Üdvözöllek:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="160"/>
+        <DataGrid Name="Tablazat" IsReadOnly="True" HorizontalAlignment="Left" Height="416" Margin="10,55,10,10" VerticalAlignment="Top" Width="1114"/>
+        <Label Name="udvozles_Label" FontSize="15" Content="Üdv:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="160"/>
         <TextBox Name="KeresesTextBox" HorizontalAlignment="Left" Height="23" Margin="175,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="175,11,0,0" TextWrapping="Wrap" Text="Keresés:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="312,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Válassz oszlopot"/><Run Text=":"/></TextBlock>
         <RadioButton Name="kikolcsonozhetoRadioButton" Content="Kikölcsönözhető könyvek"  HorizontalAlignment="Left" Margin="451,15,0,0" VerticalAlignment="Top" Checked="kikolcsonozhetoRadioButton_Checked"/>
         <RadioButton Name="kikolcsonozottRadioButton" Content="Kikölcsönzött könyvek" IsChecked="True" HorizontalAlignment="Left" Margin="451,35,0,0" VerticalAlignment="Top" Checked="kikolcsonozottRadioButton_Checked"/>
-        
+
     </Grid>
 </Window>
