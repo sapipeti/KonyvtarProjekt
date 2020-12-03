@@ -4,6 +4,7 @@ using System.Text;
 
 namespace WebApi_Common.Models
 {
+    //Ez alapján tároljuk a JSONban a könyveket.
     public class Konyv
     {
         public long Id  { get; set; }

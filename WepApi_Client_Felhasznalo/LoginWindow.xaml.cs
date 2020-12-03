@@ -30,7 +30,7 @@ namespace WepApi_Client_Felhasznalo
             InitializeComponent();
         }
 
-        private void BejelentkezesAction(object sender, RoutedEventArgs e)
+        private void Bejelentkezes_Button_Action(object sender, RoutedEventArgs e)
         {
             if (JelszoPasswordBox.Password.ToString().Equals("") || NeptunKodTextBox.Text.ToString().Equals(""))
             {
@@ -52,21 +52,11 @@ namespace WepApi_Client_Felhasznalo
             }
         }
 
-        private void RegisztracioAction(object sender, RoutedEventArgs e)
+        private void Regisztracio_Button_Action(object sender, RoutedEventArgs e)
         {
             RegisterWindow rw = new RegisterWindow();
             rw.Show();
             this.Close();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

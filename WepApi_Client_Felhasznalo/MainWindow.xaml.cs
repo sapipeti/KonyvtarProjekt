@@ -142,6 +142,8 @@ namespace WepApi_Client_Felhasznalo
                             szerzo += item2;
                         }
                     }
+
+                    //Akkor jelenítjük meg a könyvet, ha a felhasználó kikölcsönözte azt.
                     if (index != -1)
                     {
                         konyvek_kikolcsonzott.Add(new KonyvKliens(item.Id, item.Cím, item.ISBN, item.Kiadó, item.Kiadás_Év, mufaj, szerzo, item.VisszaHozas[index], item.KolcsonzottDB[index]));

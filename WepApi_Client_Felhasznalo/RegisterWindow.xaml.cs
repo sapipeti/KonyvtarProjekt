@@ -29,12 +29,7 @@ namespace WepApi_Client_Felhasznalo
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Regisztracio_Button_Action(object sender, RoutedEventArgs e)
         {
             if (NeptunKodTextBox.Text.ToString().Equals("") || JelszoPassWordBox1.Password.ToString().Equals("") || JelszoPassWordBox2.Password.ToString().Equals("")) 
             {
@@ -66,7 +61,7 @@ namespace WepApi_Client_Felhasznalo
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Vissza_Button_Action(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
             lw.Show();

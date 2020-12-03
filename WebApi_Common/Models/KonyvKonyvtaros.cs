@@ -4,6 +4,7 @@ using System.Text;
 
 namespace WebApi_Common.Models
 {
+    //Táblázatos megjelenítéshez kell a könyvtáros oldalra
     public class KonyvKonyvtaros
     {
         public long Id { get; set; }

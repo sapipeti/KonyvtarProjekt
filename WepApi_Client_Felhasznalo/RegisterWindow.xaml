@@ -19,8 +19,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Center" Height="23" Margin="80,84,80,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Regisztráció" HorizontalAlignment="Center" Background="Beige" Margin="164,191,84,0" VerticalAlignment="Top" Width="74" Click="Button_Click">
+        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Center" Height="23" Margin="80,84,80,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Button Content="Regisztráció" HorizontalAlignment="Center" Background="Beige" Margin="164,191,84,0" VerticalAlignment="Top" Width="74" Click="Regisztracio_Button_Action">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -33,7 +33,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="84,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Jelszó"/><Run Text=" "/><Run Text="újra:"/></TextBlock>
         <PasswordBox Name="JelszoPassWordBox1" HorizontalAlignment="Center" Margin="80,124,80,0" VerticalAlignment="Top" Width="155" Height="23"/>
         <PasswordBox Name="JelszoPassWordBox2" HorizontalAlignment="Center" Margin="80,163,80,0" VerticalAlignment="Top" Width="155" Height="23"/>
-        <Button Content="Vissza" HorizontalAlignment="Center" Background="Beige" Margin="84,191,164,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1">
+        <Button Content="Vissza" HorizontalAlignment="Center" Background="Beige" Margin="84,191,164,0" VerticalAlignment="Top" Width="74" Click="Vissza_Button_Action">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

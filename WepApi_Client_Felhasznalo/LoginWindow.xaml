@@ -19,15 +19,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Bejelentkezés" HorizontalAlignment="Left" Background="Beige" Margin="160,162,0,0" VerticalAlignment="Top" Width="75" Click="BejelentkezesAction" RenderTransformOrigin="0.205,0.512">
+        <Button Content="Bejelentkezés" HorizontalAlignment="Left" Background="Beige" Margin="160,162,0,0" VerticalAlignment="Top" Width="75" Click="Bejelentkezes_Button_Action" RenderTransformOrigin="0.205,0.512">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Left" Height="23" Margin="80,85,80,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Regisztráció" HorizontalAlignment="Left" Background="Beige" Margin="80,162,0,0" VerticalAlignment="Top" Width="75" Click="RegisztracioAction">
+        <TextBox Name="NeptunKodTextBox" HorizontalAlignment="Left" Height="23" Margin="80,85,80,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Button Content="Regisztráció" HorizontalAlignment="Left" Background="Beige" Margin="80,162,0,0" VerticalAlignment="Top" Width="75" Click="Regisztracio_Button_Action">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="8"/>

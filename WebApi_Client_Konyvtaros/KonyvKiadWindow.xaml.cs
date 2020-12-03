@@ -34,7 +34,7 @@ namespace WebApi_Client_Konyvtaros
             
         }
 
-            public KonyvKiadWindow(long id)
+        public KonyvKiadWindow(long id)
         {
             InitializeComponent(); 
             fAdatString = new List<string>();
